@@ -1,0 +1,80 @@
+#include<stdio.h>
+#include<string.h>
+int main (){
+     int variavel;
+    do{
+        printf("Bem Vindo - Escolha alguma das opcoes\n");
+        printf("1 - Ir ate um submenu\n");
+        printf("0 - Sair do programa\n");
+        scanf("%d",&variavel);
+        switch(variavel){
+            case 1:{
+                functionmenu(variavel);
+                break;
+            }  default:{
+                printf("Erro\n");
+            }
+        }
+    } while(variavel !=0);
+    printf("Programa encerrado");
+}
+int functionmenu(int x){
+    int subvariavel;
+    do{
+         printf("Escolha as opcoes do Submenu\n");
+         printf("1-Sair\n");
+         printf("2-Retornar\n");
+         printf("3-Cadastrar seu nome\n");
+         printf("4-Multiplique seu numero\n");
+         scanf("%d",&subvariavel);
+         switch(subvariavel){
+             case 1:{
+             printf("Saindo do programa\n");
+             break;
+         }
+            case 2:{
+                return;
+        }
+        case 3:{
+            functionnome(subvariavel);
+        }
+        case 4:{
+            functionnumero(subvariavel);
+        }
+    }
+ } while(subvariavel !=1);
+    printf("Depuracao para saida do-while\n");
+    scanf("%d",&subvariavel);
+    return 0;
+}
+int functionnome(int x){
+    char nome[50], escolha[4];
+     do{
+        printf("Deseja cadastrar seu nome?Sim ou Nao\n");
+        scanf("%s",&escolha);
+        if (escolha, 'Sim'){
+            printf("Qual seu nome ?\n");
+            scanf("%s",&nome);
+            printf("Nome salvo na variavel\n",nome);
+            printf("Retornando ao submenu\n");
+            return;
+        }
+     }while(escolha,'Nao');
+     printf("Saindo da funcao\n");
+     return;
+}
+int functionnumero(int z){
+        char subescolha[4];
+    do{
+            int valor,multiplicador;
+        printf("Escolhar um valor a ser multiplicado\n");
+        scanf("%d",&valor);
+        printf("Escolhar um multiplicador\n");
+        scanf("%d",&multiplicador);
+        int multisoma = valor * multiplicador;
+        printf("Esse eh o resultado:%d\n",multisoma);
+        printf("Deseja continuar Sim ou Nao\n");
+        scanf("%s",&subescolha);
+    } while (strcmp(subescolha, "Nao") != 0);
+    return;
+}
