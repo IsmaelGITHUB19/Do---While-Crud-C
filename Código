@@ -2,7 +2,7 @@
 #include<string.h>
 int main (){
      int variavel;
-    do{
+    do{ //Do - While para executar caso o valor seja diferente de 0
         printf("Bem Vindo - Escolha alguma das opcoes\n");
         printf("1 - Ir ate um submenu\n");
         printf("0 - Sair do programa\n");
@@ -11,35 +11,48 @@ int main (){
             case 1:{
                 functionmenu(variavel);
                 break;
-            }  default:{
+            }
+            default:{
                 printf("Erro\n");
+
             }
         }
-    } while(variavel !=0);
+    } while(variavel !=0 );
     printf("Programa encerrado");
 }
 int functionmenu(int x){
     int subvariavel;
-    do{
+    do{ // DO -while para executar o switch case caso o valor da subvariavel seja diferente de 1
          printf("Escolha as opcoes do Submenu\n");
          printf("1-Sair\n");
          printf("2-Retornar\n");
          printf("3-Cadastrar seu nome\n");
          printf("4-Multiplique seu numero\n");
+         printf("5-Laco de repeticao para aumentar ate 100\n");
          scanf("%d",&subvariavel);
-         switch(subvariavel){
+         switch(subvariavel){//Chamando as funcoes com switch case
              case 1:{
              printf("Saindo do programa\n");
              break;
          }
             case 2:{
                 return;
+                break;
         }
         case 3:{
             functionnome(subvariavel);
+            break;
         }
         case 4:{
             functionnumero(subvariavel);
+            break;
+        }
+        case 5:{
+            functionrepet(subvariavel);
+            break;
+        }
+        default:{
+            printf("Erro");
         }
     }
  } while(subvariavel !=1);
@@ -49,23 +62,23 @@ int functionmenu(int x){
 }
 int functionnome(int x){
     char nome[50], escolha[4];
-     do{
+     do{ // Do while  para executar um if else para atribuir a string Nao com valor diferente de zero e executado o Laço
         printf("Deseja cadastrar seu nome?Sim ou Nao\n");
-        scanf("%s",&escolha);
-        if (escolha, 'Sim'){
+        scanf("%s",escolha);
+        if(strcmp(escolha, "Sim") == 0){
             printf("Qual seu nome ?\n");
-            scanf("%s",&nome);
+            scanf("%s",nome);
             printf("Nome salvo na variavel\n",nome);
             printf("Retornando ao submenu\n");
             return;
         }
-     }while(escolha,'Nao');
+     }while (strcmp(escolha, "Nao") != 0);
      printf("Saindo da funcao\n");
      return;
 }
 int functionnumero(int z){
         char subescolha[4];
-    do{
+    do{ //Do while já pronto apenas utilizando o while para dar ou nao continuidade
             int valor,multiplicador;
         printf("Escolhar um valor a ser multiplicado\n");
         scanf("%d",&valor);
@@ -77,4 +90,18 @@ int functionnumero(int z){
         scanf("%s",&subescolha);
     } while (strcmp(subescolha, "Nao") != 0);
     return;
+}
+int functionrepet(int y){
+     int value_type;
+    do{
+        printf("Adicione o valor a acrescentar\n");
+        scanf("%d",&value_type);
+         while (value_type<100){
+            printf("%d ",value_type);
+             value_type++;
+        }
+    } while(value_type >100);
+    printf ("\nSeu numero se tornou ou era maior que 100\nVou retornar ao Submenu\n");
+     return;
+
 }
